@@ -78,7 +78,7 @@ def find_unique_common_items(items1, items2):
         [2]
     """
 
-    return set()
+    return set(items1) & set(items2)
 
 
 def get_sum_zero_pairs(numbers):
@@ -108,7 +108,7 @@ def get_sum_zero_pairs(numbers):
         [[-1, 1], [0, 0]]
     """
 
-    return []
+    return set()
 
 
 def top_chars(phrase):
