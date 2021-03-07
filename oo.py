@@ -33,7 +33,20 @@ class Exam(object):
         self.questions = []
         self.name = name 
 
+
     def add_question(self, question):
         """Add a question to the exam"""
 
         self.questions.append(question)
+
+
+    def administer(self):
+        """Administer an exam and keep track of the score"""
+
+        score = 0
+
+        for question in self.questions:
+            if question.ask_and_evaluate():
+                score += 1
+
+        return round(100 * (float(score) / len(self.questions)), 2)
