@@ -108,11 +108,6 @@ def get_sum_zero_pairs(numbers):
         [[-1, 1], [0, 0]]
     """
 
-    # iterate through each number in the list, and check if it's negative exists
-    # if yes, then add the pair to the list 
-
-    # [1, 2, 3, -2, -1]
-
     pairs = []
 
     if 0 in numbers:
@@ -156,7 +151,24 @@ def top_chars(phrase):
 
     """
 
-    return []
+    chars_dict = {}
+
+    phrase_list = phrase.split(" ") # create a list splitting on spaces
+    chars = "".join(phrase_list) # join list back together without spaces
+
+    for char in chars:
+        chars_dict[char] = chars.count(char)
+
+    sorted_values = sorted(chars_dict.values())
+
+    max_count = sorted_values[-1]
+
+    top_chars = []
+    for letter in chars_dict:
+        if chars_dict[letter] == max_count:
+            top_chars.append(letter)
+
+    return sorted(top_chars)
 
 #####################################################################
 # You can ignore everything below this.
