@@ -108,7 +108,27 @@ def get_sum_zero_pairs(numbers):
         [[-1, 1], [0, 0]]
     """
 
-    return set()
+    # iterate through each number in the list, and check if it's negative exists
+    # if yes, then add the pair to the list 
+
+    # [1, 2, 3, -2, -1]
+
+    pairs = []
+
+    if 0 in numbers:
+        pairs.append([0, 0])
+
+    for number in numbers:
+        if number * -1 in numbers:
+            pairs.append(sorted([number, number * -1]))
+
+    uniques = []
+
+    for pair in pairs:
+        if pair not in uniques:
+            uniques.append(pair)
+
+    return uniques
 
 
 def top_chars(phrase):
